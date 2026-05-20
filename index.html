@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Wedding Invitation | Jegadeesan & Janani</title>
 
@@ -39,10 +39,11 @@
             overflow-x: hidden;
         }
 
-        /* ---------------- DECOR FLOWERS ---------------- */
+        /* ---------------- FLOWERS ---------------- */
 
         .decor-container {
             position: fixed;
+
             top: 0;
             left: 0;
 
@@ -50,12 +51,14 @@
             height: 100%;
 
             z-index: 0;
+
             pointer-events: none;
         }
 
         .flower {
             position: absolute;
             opacity: 0;
+
             animation: floatDown 12s infinite linear;
         }
 
@@ -86,8 +89,8 @@
 
             position: fixed;
 
-            top: 60px;
-            left: -15px;
+            bottom: 65px;
+            left: -20px;
 
             z-index: 9999;
 
@@ -129,6 +132,7 @@
         /* ---------------- TOP BAR ---------------- */
 
         .invitation-top {
+
             background: var(--royal-purple);
 
             color: white;
@@ -142,12 +146,14 @@
             letter-spacing: 2px;
 
             position: relative;
+
             z-index: 10;
         }
 
         /* ---------------- HEADER ---------------- */
 
         header {
+
             padding: 40px 10px;
 
             position: relative;
@@ -156,6 +162,7 @@
         }
 
         .names-display {
+
             font-family: 'Great Vibes', cursive;
 
             font-size: clamp(2.8rem, 8vw, 4.5rem);
@@ -172,6 +179,7 @@
         }
 
         .golden-j {
+
             background: linear-gradient(to bottom,
                     #FFD700 0%,
                     #D4AF37 40%,
@@ -188,6 +196,7 @@
         /* ---------------- TIMER ---------------- */
 
         #timer-box {
+
             background: rgba(255, 255, 255, 0.75);
 
             backdrop-filter: blur(10px);
@@ -210,26 +219,34 @@
         }
 
         .timer-unit {
+
             display: flex;
             flex-direction: column;
+
             min-width: 60px;
         }
 
         .timer-num {
+
             font-size: 1.8rem;
             font-weight: bold;
+
             color: var(--royal-purple);
         }
 
         .timer-label {
+
             font-size: 0.6rem;
+
             text-transform: uppercase;
+
             color: #888;
         }
 
         /* ---------------- SECTION ---------------- */
 
         .section {
+
             background: rgba(255, 255, 255, 0.75);
 
             backdrop-filter: blur(10px);
@@ -255,14 +272,18 @@
         }
 
         .section:hover {
+
             transform: translateY(-5px);
+
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
         }
 
         /* ---------------- BUTTON ---------------- */
 
         .btn {
+
             position: relative;
+
             overflow: hidden;
 
             background: linear-gradient(135deg,
@@ -290,6 +311,7 @@
         }
 
         .btn::before {
+
             content: '';
 
             position: absolute;
@@ -306,16 +328,19 @@
         }
 
         .btn:hover::before {
+
             left: 100%;
         }
 
         .btn:hover {
+
             transform: translateY(-2px);
         }
 
         /* ---------------- MUSIC BUTTON ---------------- */
 
         .music-btn {
+
             position: fixed;
 
             right: 20px;
@@ -344,6 +369,7 @@
         /* ---------------- BOTTOM NAV ---------------- */
 
         .bottom-nav {
+
             position: fixed;
 
             bottom: 0;
@@ -363,6 +389,7 @@
         }
 
         .bottom-nav a {
+
             text-decoration: none;
 
             color: var(--royal-purple);
@@ -371,9 +398,10 @@
             font-weight: 600;
         }
 
-        /* ---------------- ANIMATION ---------------- */
+        /* ---------------- FADE UP ---------------- */
 
         .fade-up {
+
             opacity: 0;
 
             transform: translateY(40px);
@@ -389,14 +417,14 @@
             }
         }
 
-        /* ---------------- MOBILE ---------------- */
+        /* ---------------- TABLET ---------------- */
 
         @media(max-width:768px) {
 
             .fixed-couple {
 
-                top: 85px;
-                left: -25px;
+                bottom: 80px;
+                left: -30px;
             }
 
             .fixed-couple img {
@@ -405,30 +433,38 @@
             }
         }
 
+        /* ---------------- MOBILE ---------------- */
+
         @media(max-width:480px) {
 
             .names-display {
+
                 flex-direction: column;
+
                 gap: 0;
             }
 
             #timer-box {
+
                 gap: 10px;
+
                 padding: 15px;
             }
 
             .timer-unit {
+
                 min-width: 50px;
             }
 
             .timer-num {
+
                 font-size: 1.5rem;
             }
 
             .fixed-couple {
 
-                top: 110px;
-                left: -35px;
+                bottom: 90px;
+                left: -40px;
             }
 
             .fixed-couple img {
@@ -444,19 +480,19 @@
     <!-- FLOWERS -->
     <div class="decor-container" id="decorField"></div>
 
-    <!-- FIXED COUPLE IMAGE -->
+    <!-- FLOATING COUPLE IMAGE -->
     <div class="fixed-couple">
         <img src="couple.png" alt="Jegadeesan and Janani">
     </div>
 
-    <!-- MUSIC -->
+    <!-- MUSIC BUTTON -->
     <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
     <audio id="bgMusic" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- TOP -->
+    <!-- TOP BAR -->
     <div class="invitation-top" id="home">
         You are cordially invited for the wedding reception of
     </div>
@@ -470,9 +506,7 @@
                 <span class="golden-j">J</span>egadeesan
             </span>
 
-            <span style="font-size:0.6em; opacity:0.5;">
-                &
-            </span>
+            <span style="font-size:0.6em; opacity:0.5;">&</span>
 
             <span>
                 <span class="golden-j">J</span>anani
@@ -484,7 +518,7 @@
             28 MAY 2026
         </div>
 
-        <!-- TIMER -->
+        <!-- COUNTDOWN -->
         <div id="timer-box">
 
             <div class="timer-unit">
@@ -511,7 +545,7 @@
 
     </header>
 
-    <!-- DETAILS -->
+    <!-- EVENT DETAILS -->
     <section class="section fade-up" id="details">
 
         <h2 style="font-family:'Great Vibes'; font-size:3rem; color:var(--royal-purple); margin-top:0;">
@@ -555,7 +589,7 @@
 
         <p>Please let us know if you can make it!</p>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpmHc4kP5G3FfzuSjM17U2vxWOTuV9x1Ix0Md1-ZniEpWNaw/viewform"
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSci6Maypo7wxZLyb9W5h-cKSw54c_O3SUSPBmK4zQF1dBHykw/viewform?usp=dialog"
             target="_blank"
             class="btn">
             Join Us
@@ -663,8 +697,11 @@
         function toggleMusic() {
 
             if (music.paused) {
+
                 music.play();
+
             } else {
+
                 music.pause();
             }
         }
