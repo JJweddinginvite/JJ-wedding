@@ -1,10 +1,13 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation | Jegadeesan & Janani</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --gold: #D4AF37;
@@ -14,19 +17,32 @@
             --bg-cream: #FFFCF5;
         }
 
+        html{
+            scroll-behavior:smooth;
+        }
+
         body { 
             font-family: 'Montserrat', sans-serif; 
-            margin: 0; padding-bottom: 100px; 
+            margin: 0;
+            padding-bottom: 100px; 
             text-align: center; 
-            background: var(--bg-cream);
+            background:
+                radial-gradient(circle at top right, #fff6da 0%, transparent 25%),
+                radial-gradient(circle at bottom left, #f8e8ff 0%, transparent 25%),
+                var(--bg-cream);
+
             color: #333;
             overflow-x: hidden;
         }
 
-        /* --- FLORAL BACKGROUND ANIMATION --- */
+        /* ---------------- DECOR BACKGROUND ---------------- */
+
         .decor-container {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 0;
             pointer-events: none;
         }
@@ -38,13 +54,58 @@
         }
 
         @keyframes floatDown {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
-        /* --- CONTENT STYLING --- */
+        /* ---------------- FIXED COUPLE IMAGE ---------------- */
+
+        .fixed-couple{
+            position: fixed;
+            left: 0;
+            bottom: 70px;
+            z-index: 2;
+            pointer-events: none;
+            animation: floatCouple 4s ease-in-out infinite;
+        }
+
+        .fixed-couple img{
+            width: 260px;
+            max-width: 38vw;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.18));
+        }
+
+        @keyframes floatCouple{
+            0%{
+                transform: translateY(0px);
+            }
+            50%{
+                transform: translateY(-8px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+        }
+
+        /* ---------------- TOP BAR ---------------- */
+
         .invitation-top {
             background: var(--royal-purple);
             color: white;
@@ -57,7 +118,13 @@
             z-index: 10;
         }
 
-        header { padding: 40px 10px; position: relative; z-index: 5; }
+        /* ---------------- HEADER ---------------- */
+
+        header {
+            padding: 40px 10px;
+            position: relative;
+            z-index: 5;
+        }
 
         .names-display {
             font-family: 'Great Vibes', cursive;
@@ -78,9 +145,13 @@
             filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.1));
         }
 
-        /* --- TIMER --- */
+        /* ---------------- TIMER ---------------- */
+
         #timer-box {
-            background: white;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
             display: inline-flex;
             justify-content: center;
             padding: 20px 25px;
@@ -90,88 +161,317 @@
             margin: 30px 0;
             gap: 15px;
         }
-        .timer-unit { display: flex; flex-direction: column; min-width: 60px; }
-        .timer-num { font-size: 1.8rem; font-weight: bold; color: var(--royal-purple); }
-        .timer-label { font-size: 0.6rem; text-transform: uppercase; color: #888; }
 
-        /* --- SECTIONS --- */
+        .timer-unit {
+            display: flex;
+            flex-direction: column;
+            min-width: 60px;
+        }
+
+        .timer-num {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--royal-purple);
+        }
+
+        .timer-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        /* ---------------- SECTIONS ---------------- */
+
         .section { 
-            background: white;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
             margin: 20px auto; 
             max-width: 500px; 
             padding: 35px 25px; 
             border-radius: 25px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+
+            border: 1px solid rgba(212,175,55,0.25);
+
             box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+
             position: relative;
             z-index: 5;
+
+            transition: 0.4s ease;
         }
+
+        .section:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        /* ---------------- BUTTONS ---------------- */
 
         .btn { 
-            background: var(--royal-purple);
+            position: relative;
+            overflow: hidden;
+
+            background: linear-gradient(135deg,#6A0DAD,#8A2BE2);
             color: white; 
+
             padding: 12px 28px; 
+
             text-decoration: none; 
             border-radius: 30px; 
+
             display: inline-block; 
+
             margin: 10px 5px; 
+
             font-weight: 600;
             font-size: 0.9rem;
+
             transition: 0.3s;
+
+            box-shadow: 0 8px 20px rgba(106,13,173,0.25);
         }
-        .btn:hover { background: #4B0082; transform: translateY(-2px); }
+
+        .btn::before{
+            content:'';
+            position:absolute;
+            top:0;
+            left:-100%;
+            width:100%;
+            height:100%;
+            background:rgba(255,255,255,0.2);
+            transition:0.5s;
+        }
+
+        .btn:hover::before{
+            left:100%;
+        }
+
+        .btn:hover {
+            background: #4B0082;
+            transform: translateY(-2px);
+        }
+
+        /* ---------------- MUSIC BUTTON ---------------- */
+
+        .music-btn{
+            position:fixed;
+            right:20px;
+            bottom:90px;
+            width:55px;
+            height:55px;
+            border-radius:50%;
+            background:var(--royal-purple);
+            color:white;
+            border:none;
+            font-size:22px;
+            z-index:1000;
+            cursor:pointer;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* ---------------- BOTTOM NAV ---------------- */
 
         .bottom-nav {
-            position: fixed; bottom: 0; width: 100%;
-            background: white; display: flex; justify-content: space-around;
-            padding: 18px 0; border-top: 1px solid var(--gold);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+
+            background: white;
+
+            display: flex;
+            justify-content: space-around;
+
+            padding: 18px 0;
+
+            border-top: 1px solid var(--gold);
+
             z-index: 1000;
         }
-        .bottom-nav a { text-decoration: none; color: var(--royal-purple); font-size: 0.8rem; font-weight: 600; }
+
+        .bottom-nav a {
+            text-decoration: none;
+            color: var(--royal-purple);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* ---------------- FADE ANIMATION ---------------- */
+
+        .fade-up{
+            opacity:0;
+            transform:translateY(40px);
+            animation:fadeUp 1s ease forwards;
+        }
+
+        @keyframes fadeUp{
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        /* ---------------- MOBILE ---------------- */
+
+        @media(max-width:768px){
+
+            .fixed-couple{
+                left:-20px;
+                bottom:85px;
+            }
+
+            .fixed-couple img{
+                width:180px;
+                opacity:0.95;
+            }
+        }
+
+        @media(max-width:480px){
+
+            .names-display{
+                flex-direction:column;
+                gap:0;
+            }
+
+            #timer-box{
+                gap:10px;
+                padding:15px;
+            }
+
+            .timer-unit{
+                min-width:50px;
+            }
+
+            .timer-num{
+                font-size:1.5rem;
+            }
+
+            .fixed-couple img{
+                width:150px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
+    <!-- Decorative Flowers -->
     <div class="decor-container" id="decorField"></div>
 
+    <!-- Fixed Couple Image -->
+    <div class="fixed-couple">
+        <img src="couple.png" alt="Jegadeesan and Janani">
+    </div>
+
+    <!-- Music Button -->
+    <button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Top -->
     <div class="invitation-top" id="home">
         You are cordially invited for the wedding reception of
     </div>
 
+    <!-- Header -->
     <header>
-        <div class="names-display">
-            <span><span class="golden-j">J</span>egadeesan</span>
-            <span style="font-size: 0.6em; opacity: 0.5;">&</span>
-            <span><span class="golden-j">J</span>anani</span>
-        </div>
-        <div style="letter-spacing: 5px; font-weight: 300; color: #666;"> 28 MAY 2026</div>
 
-        <div id="timer-box">
-            <div class="timer-unit"><span class="timer-num" id="days">00</span><span class="timer-label">Days</span></div>
-            <div class="timer-unit"><span class="timer-num" id="hours">00</span><span class="timer-label">Hours</span></div>
-            <div class="timer-unit"><span class="timer-num" id="mins">00</span><span class="timer-label">Mins</span></div>
-            <div class="timer-unit"><span class="timer-num" id="secs">00</span><span class="timer-label">Secs</span></div>
+        <div class="names-display">
+            <span>
+                <span class="golden-j">J</span>egadeesan
+            </span>
+
+            <span style="font-size: 0.6em; opacity: 0.5;">&</span>
+
+            <span>
+                <span class="golden-j">J</span>anani
+            </span>
         </div>
+
+        <div style="letter-spacing: 5px; font-weight: 300; color: #666;">
+            28 MAY 2026
+        </div>
+
+        <!-- Timer -->
+        <div id="timer-box">
+
+            <div class="timer-unit">
+                <span class="timer-num" id="days">00</span>
+                <span class="timer-label">Days</span>
+            </div>
+
+            <div class="timer-unit">
+                <span class="timer-num" id="hours">00</span>
+                <span class="timer-label">Hours</span>
+            </div>
+
+            <div class="timer-unit">
+                <span class="timer-num" id="mins">00</span>
+                <span class="timer-label">Mins</span>
+            </div>
+
+            <div class="timer-unit">
+                <span class="timer-num" id="secs">00</span>
+                <span class="timer-label">Secs</span>
+            </div>
+
+        </div>
+
     </header>
 
-    <section class="section" id="details">
-        <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--royal-purple); margin-top: 0;">Event Details</h2>
-        
-        <p><strong>RECEPTION</strong><br>Thursday, 28-May-2026 | 6:00 PM<br>Ranjan Mahal, Poigai, Vellore</p>
-        <a href="https://maps.app.goo.gl/HAP9YgrTtHVZS1zc6" target="_blank" class="btn">Navigate to Mahal</a>
-        
+    <!-- Details -->
+    <section class="section fade-up" id="details">
+
+        <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--royal-purple); margin-top: 0;">
+            Event Details
+        </h2>
+
+        <p>
+            <strong>RECEPTION</strong><br>
+            Thursday, 28-May-2026 | 6:00 PM<br>
+            Ranjan Mahal, Poigai, Vellore
+        </p>
+
+        <a href="https://maps.app.goo.gl/HAP9YgrTtHVZS1zc6" target="_blank" class="btn">
+            Navigate to Mahal
+        </a>
+
         <hr style="opacity: 0.1; margin: 30px auto; width: 60%;">
-        
-        <p><strong>MARRIAGE</strong><br>Friday, 29-May-2026 | 6:30 AM<br>Vellore Fort Temple, Vellore</p>
-        <a href="https://maps.app.goo.gl/zsq9nBsHcZDinKAU9" target="_blank" class="btn">Navigate to Temple</a>
+
+        <p>
+            <strong>MARRIAGE</strong><br>
+            Friday, 29-May-2026 | 6:30 AM<br>
+            Vellore Fort Temple, Vellore
+        </p>
+
+        <a href="https://maps.app.goo.gl/zsq9nBsHcZDinKAU9" target="_blank" class="btn">
+            Navigate to Temple
+        </a>
+
     </section>
 
-    <section class="section" id="rsvp">
-        <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--royal-purple); margin-top: 0;">RSVP</h2>
+    <!-- RSVP -->
+    <section class="section fade-up" id="rsvp">
+
+        <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--royal-purple); margin-top: 0;">
+            RSVP
+        </h2>
+
         <p>Please let us know if you can make it!</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpmHc4kP5G3FfzuSjM17U2vxWOTuV9x1Ix0Md1-ZniEpWNaw/viewform" target="_blank" class="btn">Join Us</a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpmHc4kP5G3FfzuSjM17U2vxWOTuV9x1Ix0Md1-ZniEpWNaw/viewform"
+           target="_blank"
+           class="btn">
+            Join Us
+        </a>
+
     </section>
 
+    <!-- Bottom Nav -->
     <nav class="bottom-nav">
         <a href="#home">HOME</a>
         <a href="#details">DETAILS</a>
@@ -179,39 +479,95 @@
     </nav>
 
     <script>
-        // Generate Red Roses and White Jasmine Flowers
+
+        // ---------------- FLOWERS ----------------
+
         const decorField = document.getElementById('decorField');
+
         const flowers = [
-            { char: '🌹', color: '#E31E24' }, // Rose
-            { char: '🌷', color: '#FFFFFF' }, // Jasmine/Malli
-            { char: '🌸', color: '#FFB6C1' }  // Divine flower
+            { char: '🌹', color: '#E31E24' },
+            { char: '🌸', color: '#FFB6C1' },
+            { char: '✨', color: '#D4AF37' }
         ];
 
         for (let i = 0; i < 35; i++) {
+
             const flowerType = flowers[Math.floor(Math.random() * flowers.length)];
+
             const item = document.createElement('div');
+
             item.className = 'flower';
+
             item.innerHTML = flowerType.char;
+
             item.style.color = flowerType.color;
+
             item.style.left = Math.random() * 100 + '%';
+
             item.style.animationDelay = Math.random() * 12 + 's';
+
             item.style.fontSize = (Math.random() * 20 + 20) + 'px';
-            item.style.filter = "drop-shadow(2px 2px 5px rgba(0,0,0,0.1))";
+
+            item.style.filter =
+                "drop-shadow(2px 2px 5px rgba(0,0,0,0.1))";
+
             decorField.appendChild(item);
         }
 
-        // Countdown Timer
-        const weddingDate = new Date("May 28, 2026 18:00:00").getTime();
+        // ---------------- COUNTDOWN ----------------
+
+        const weddingDate =
+            new Date("May 28, 2026 18:00:00").getTime();
+
         setInterval(() => {
+
             const now = new Date().getTime();
+
             const diff = weddingDate - now;
+
             if (diff > 0) {
-                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-                document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+
+                document.getElementById("days").innerText =
+                    Math.floor(diff / (1000 * 60 * 60 * 24))
+                    .toString()
+                    .padStart(2, '0');
+
+                document.getElementById("hours").innerText =
+                    Math.floor((diff % (1000 * 60 * 60 * 24))
+                    / (1000 * 60 * 60))
+                    .toString()
+                    .padStart(2, '0');
+
+                document.getElementById("mins").innerText =
+                    Math.floor((diff % (1000 * 60 * 60))
+                    / (1000 * 60))
+                    .toString()
+                    .padStart(2, '0');
+
+                document.getElementById("secs").innerText =
+                    Math.floor((diff % (1000 * 60))
+                    / 1000)
+                    .toString()
+                    .padStart(2, '0');
             }
+
         }, 1000);
+
+        // ---------------- MUSIC ----------------
+
+        const music = document.getElementById("bgMusic");
+
+        function toggleMusic(){
+
+            if(music.paused){
+                music.play();
+            }else{
+                music.pause();
+            }
+        }
+
     </script>
+
 </body>
 </html>
+```
